@@ -7,6 +7,8 @@ https://dotnet.microsoft.com/en-us/download
 
 ## Installation
 
+dotnet build
+
 dotnet tool update --global PowerShell
 
 pwsh ./bin/Debug/net7.0/playwright.ps1 install
