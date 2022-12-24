@@ -18,4 +18,4 @@ pwsh ./bin/Debug/net7.0/playwright.ps1 install
 - dotnet run -- vote --article "Article1Uri" "Article2Uri" "Article3Uri"
 - dotnet run -- --article "Article1Uri" "Article2Uri" "Article3Uri"
 
-- dotnet run -- post --article "Article1Uri" "Article2Uri" "Article3Uri"
+- dotnet run -- post --article "Article1Uri" "Article2Uri" "Article3Uri" --headless
