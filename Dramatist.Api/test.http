@@ -1,0 +1,53 @@
+# vscode-restclient
+
+GET http://localhost:5252/ HTTP/1.1
+
+###
+
+GET http://localhost:5252/users HTTP/1.1
+
+###
+
+GET http://localhost:5252/user/2 HTTP/1.1
+
+###
+
+POST http://localhost:5252/user HTTP/1.1
+content-type: application/json
+
+{
+  "id": 0,
+  "handle": "string",
+  "name": "string"
+}
+
+###
+
+PUT http://localhost:5252/user/2 HTTP/1.1
+content-type: application/json
+
+{
+  "id": 2,
+  "handle": "hhh",
+  "name": "string",
+  "isDemocrat": true,
+  "isGerbage": true,
+  "isPutaran": true,
+  "notes": "string"
+}
+
+###
+
+PUT http://localhost:5252/user/3 HTTP/1.1
+content-type: application/json
+
+{
+  "id": 3,
+  "handle": "hhh",
+  "name": "string",
+  "isDemocrat": true
+}
+
+###
+
+DELETE http://localhost:5252/user/4 HTTP/1.1
