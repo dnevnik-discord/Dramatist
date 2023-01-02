@@ -18,14 +18,27 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-var app = builder.Build(); 
+var app = builder.Build();
+
+if (builder.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+// app.UseHttpsRedirection();
+
+// app.UseAuthorization();
+
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dnevnik API V1");
 });
 
-app.MapGet("/", () => "Аз вашата тролейска...");
+//app.MapGet("/", () => "Аз вашата тролейска...");
 
 // Get all users.
 app.MapGet("/user", async (DnevnikDb db) =>
