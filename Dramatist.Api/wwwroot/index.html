@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>To-do CRUD</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
+
 <body>
-    <h1>To-do CRUD</h1>
+    <h1>Users CRUD</h1>
     <h3>Add</h3>
     <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
-        <input type="text" id="add-name" placeholder="New to-do">
+        <!-- <input type="text" id="add-name" placeholder="New to-do"> -->
+        <input type="text" id="add-id" placeholder="id">
+        <input type="text" id="add-handle" placeholder="handle">
+        <input type="text" id="add-name" placeholder="name">
+        Democrat <input type="checkbox" id="add-isDemocrat">
+        Gerbage <input type="checkbox" id="add-isGerbage">
+        Putaran <input type="checkbox" id="add-isPutaran">
+        <input type="text" id="add-notes" placeholder="notes">
         <input type="submit" value="Add">
     </form>
 
     <div id="editForm">
         <h3>Edit</h3>
         <form action="javascript:void(0);" onsubmit="updateItem()">
-            <input type="hidden" id="edit-id">
-            <input type="checkbox" id="edit-isComplete">
-            <input type="text" id="edit-name">
+            <!-- <input type="hidden" id="edit-id"> -->
+            <input type="text" id="edit-id" placeholder="id">
+            <input type="text" id="edit-handle" placeholder="handle">
+            <input type="text" id="edit-name" placeholder="name">
+            Democrat <input type="checkbox" id="edit-isDemocrat">
+            Gerbage <input type="checkbox" id="edit-isGerbage">
+            Putaran <input type="checkbox" id="edit-isPutaran">
+            <input type="text" id="edit-notes" placeholder="notes">
             <input type="submit" value="Save">
             <a onclick="closeInput()" aria-label="Close">&#10006;</a>
         </form>
@@ -28,10 +42,13 @@
 
     <table>
         <tr>
-            <th>Is Complete?</th>
+            <th>Id</th>
+            <th>Handle</th>
             <th>Name</th>
-            <th></th>
-            <th></th>
+            <th>isDemocrat</th>
+            <th>isGerbage</th>
+            <th>isPutaran</th>
+            <th>Notes</th>
         </tr>
         <tbody id="todos"></tbody>
     </table>
@@ -41,4 +58,5 @@
         getItems();
     </script>
 </body>
+
 </html>

@@ -42,10 +42,14 @@ function deleteItem(id) {
 
 function displayEditForm(id) {
   const item = todos.find(item => item.id === id);
-  
-  document.getElementById('edit-name').value = item.name;
+
   document.getElementById('edit-id').value = item.id;
-  document.getElementById('edit-isComplete').checked = item.isComplete;
+  document.getElementById('edit-handle').value = item.handle;
+  document.getElementById('edit-name').value = item.name;
+  document.getElementById('edit-isDemocrat').checked = item.isDemocrat;
+  document.getElementById('edit-isGerbage').checked = item.isGerbage;
+  document.getElementById('edit-isPutaran').checked = item.isPutaran;
+  document.getElementById('edit-notes').value = item.notes;
   document.getElementById('editForm').style.display = 'block';
 }
 
@@ -53,8 +57,12 @@ function updateItem() {
   const itemId = document.getElementById('edit-id').value;
   const item = {
     id: parseInt(itemId, 10),
-    isComplete: document.getElementById('edit-isComplete').checked,
-    name: document.getElementById('edit-name').value.trim()
+    handle: document.getElementById('edit-handle').value.trim(),
+    name: document.getElementById('edit-name').value.trim(),
+    isDemocrat: document.getElementById('edit-isDemocrat').checked,
+    isGerbage: document.getElementById('edit-isGerbage').checked,
+    isPutaran: document.getElementById('edit-isPutaran').checked,
+    name: document.getElementById('edit-notes').value.trim()
   };
 
   fetch(`${uri}/${itemId}`, {
