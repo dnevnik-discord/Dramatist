@@ -10,7 +10,6 @@ function getItems() {
 
 function addItem() {
   const addIdTextbox = document.getElementById('add-id').value;
-
   const item = {
     id: parseInt(addIdTextbox, 10),
     handle: document.getElementById('add-handle').value.trim(),
