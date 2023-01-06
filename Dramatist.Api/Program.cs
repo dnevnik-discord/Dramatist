@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("Dnevnik") ?? "Data Source=Dnevnik.db";
 
+
+
 builder.Services.AddSqlite<DnevnikDb>(connectionString);
 
 builder.Services.AddEndpointsApiExplorer();
