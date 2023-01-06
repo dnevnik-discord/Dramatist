@@ -3,7 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 public class DnevnikDb : DbContext
 {
-    public DnevnikDb(DbContextOptions options) : base(options) { }
+    public DnevnikDb(DbContextOptions options) : base(options)
+    {
+        
+    }
 
     public DbSet<User> Users { get; set; } = null!;
 
