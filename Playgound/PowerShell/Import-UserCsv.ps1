@@ -27,6 +27,6 @@ Import-Csv ./users.csv | ForEach-Object {
         -ContentType "application/json; charset=utf-8" -Body $body
 }
 
-(Invoke-RestMethod http://localhost:5252/user)`
+(Invoke-RestMethod http://localhost:5252/user) `
     |Select-Object -ExcludeProperty comments `
         |Export-Csv tmp.csv -UseQuotes AsNeeded
