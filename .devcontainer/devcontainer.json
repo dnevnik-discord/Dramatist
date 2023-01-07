@@ -5,31 +5,25 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/dotnet:0-7.0",
 	"features": {
-		"ghcr.io/devcontainers/features/powershell:1": {},
-		"ghcr.io/warrenbuckley/codespace-features/sqlite:latest": {}
+		"ghcr.io/devcontainers/features/powershell:latest": {},
+		"ghcr.io/warrenbuckley/codespace-features/sqlite:latest": {},
+		"ghcr.io/guiyomh/features/vim:latest": {}
+
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [5000, 5001],
-	// "portsAttributes": {
-	//		"5001": {
-	//			"protocol": "https"
-	//		}
-	// }
-
 	"forwardPorts": [5252],
 	"portsAttributes": {
 			"5252": {
-				// "protocol": "http",
+				"protocol": "http",
 				"label": "Dramatist's Dnevnik API"
 			}
 	},
 	
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "dotnet restore",
+	"postCreateCommand": "dotnet restore",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
