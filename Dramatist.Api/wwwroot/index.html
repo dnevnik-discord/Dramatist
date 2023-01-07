@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Users CRUD</title>
+    <link rel="stylesheet" href="site.css" />
+</head>
+
+<body>
+    <h1>Users CRUD</h1>
+    <h3>Add</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <input type="text" id="add-id" placeholder="id">
+        <input type="text" id="add-handle" placeholder="handle">
+        <input type="text" id="add-name" placeholder="name">
+        Democrat <input type="checkbox" id="add-isDemocrat">
+        Gerbage <input type="checkbox" id="add-isGerbage">
+        Putaran <input type="checkbox" id="add-isPutaran">
+        <input type="text" id="add-notes" placeholder="notes">
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="editForm">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" onsubmit="updateItem()">
+            <input type="text" id="edit-id" placeholder="id">
+            <input type="text" id="edit-handle" placeholder="handle">
+            <input type="text" id="edit-name" placeholder="name">
+            Democrat <input type="checkbox" id="edit-isDemocrat">
+            Gerbage <input type="checkbox" id="edit-isGerbage">
+            Putaran <input type="checkbox" id="edit-isPutaran">
+            <input type="text" id="edit-notes" placeholder="notes">
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <h3 id="counter"></h3>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Handle</th>
+            <th>Name</th>
+            <th>Democrat</th>
+            <th>Gerbage</th>
+            <th>Putaran</th>
+            <th>Notes</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="users"></tbody>
+    </table>
+
+    <script src="site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+    </script>
+</body>
+
+</html>
