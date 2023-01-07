@@ -23,10 +23,12 @@ Import-Csv ./users.csv | ForEach-Object {
     
     $body = ConvertTo-Json $user
     
+    # ToDo: Uri
     Invoke-RestMethod http://localhost:5252/user -Method Post `
         -ContentType "application/json; charset=utf-8" -Body $body
 }
 
+# ToDo: Uri
 (Invoke-RestMethod http://localhost:5252/user) `
     |Select-Object -ExcludeProperty comments `
         |Export-Csv tmp.csv -UseQuotes AsNeeded
