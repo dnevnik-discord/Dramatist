@@ -14,7 +14,7 @@ table {
 
 th {
   background-color: #354a69;
-  color: #dddddd;
+  color: #ffffff;
   padding: 5px;
 }
 
@@ -29,5 +29,5 @@ tr:nth-child(even) {
 
 tr:hover {
   background-color: #354a69;
-  color: #dddddd;
+  color: #ffffff;
 }
