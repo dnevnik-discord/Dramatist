@@ -1,3 +1,8 @@
+body {
+  background-color: #ffffff;
+  color: #354a69;
+}
+
 input[type='submit'], button, [aria-label] {
   cursor: pointer;
 }
@@ -24,10 +29,10 @@ td {
 }
 
 tr:nth-child(even) {
-  background-color: #d2dae7;
+  background-color: #e2e5eb;
 }
 
 tr:hover {
-  background-color: #354a69;
+  background-color: #6e809c;
   color: #ffffff;
 }
