@@ -13,11 +13,21 @@ table {
 }
 
 th {
-  background-color: #f8f8f8;
+  background-color: #354a69;
+  color: #dddddd;
   padding: 5px;
 }
 
 td {
   border: 1px solid;
   padding: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: #d2dae7;
+}
+
+tr:hover {
+  background-color: #354a69;
+  color: #dddddd;
 }
