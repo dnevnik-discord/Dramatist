@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.Playwright;
 
 
@@ -5,9 +6,11 @@ using Microsoft.Playwright;
 // One alternative is to have async factory methods
 public sealed class DnkClient
 {
+    private IPage page;
+
     private IBrowserContext context;
 
-    private DnkClient() {}
+    private DnkClient() { }
 
     public static async Task<DnkClient> CreateAsync(IBrowser browser)
     {
@@ -78,12 +81,12 @@ public sealed class DnkClient
             else
                 await r.ContinueAsync();
         });
+
+        page = await context.NewPageAsync();
     }
 
     public async Task LogInAsync(Account account)
     {
-        var page = await context.NewPageAsync();
-
         await page.GotoAsync("https://www.dnevnik.bg/");
 
         await page.GetByRole(AriaRole.Link, new() { NameString = "Профил" }).ClickAsync();
@@ -97,5 +100,28 @@ public sealed class DnkClient
         await page.GetByPlaceholder("Парола").FillAsync(account.Password);
 
         await page.GetByRole(AriaRole.Link, new() { NameString = "Вход" }).ClickAsync();
+
+        // ToDo: legacy text selector
+        await page.WaitForSelectorAsync("text='Успешно влязохте в профила си. Изчакайте за момент...'");
+    }
+
+    public async Task NavigateAsync(Uri uri) =>
+       await page.GotoAsync(uri.ToString());
+
+    public async Task GetCommentsAsync()
+    {
+        var comments = await page.QuerySelectorAllAsync("li.comment");
+
+        Console.WriteLine(comments.Count);
+
+        if (comments.Count == 100)
+        {
+            //var lastComment = await page.QuerySelectorAsync("li.comment:last-child");
+            //await lastComment.ScrollIntoViewIfNeededAsync();
+            await comments[98].ScrollIntoViewIfNeededAsync();
+            //await page.ReloadAsync();
+            // ToDo: needed?
+            await page.WaitForTimeoutAsync(10000);
+        }
     }
 }

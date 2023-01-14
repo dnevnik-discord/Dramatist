@@ -6,7 +6,7 @@ class VoteOptions
 {
     [Option(shortName: 'a', longName: "article", Required = true,
     HelpText = "Articles' comments page Uri", SetName = "vote")]
-    public IEnumerable<string> Articles { get; set; }
+    public IEnumerable<Uri> Articles { get; set; }
 
     [Option(shortName: 'x', longName: "headless", Required = false,
     HelpText = "Run headdless.", Default = false)]
@@ -18,9 +18,23 @@ class VoteOptions
 class PostOptions
 {
     [Option(shortName: 'a', longName: "article", Required = true,
-    HelpText = "Articles' comments page Uri", SetName = "vote")]
-    public IEnumerable<string> Articles { get; set; }
+    HelpText = "Articles' comments page Uri", SetName = "post")]
+    public IEnumerable<Uri> Articles { get; set; }
 
+    [Option(shortName: 'x', longName: "headless", Required = false,
+    HelpText = "Run headdless.", Default = false)]
+    public bool Headless { get; set; }
+}
+
+
+[Verb("edit", HelpText = "Edit users.")]
+class EditOptions
+{
+    [Option(shortName: 'a', longName: "article", Required = true,
+    HelpText = "Articles' comments page Uri", SetName = "edit")]
+    public IEnumerable<Uri> Articles { get; set; }
+
+    // ToDo: headless only?
     [Option(shortName: 'x', longName: "headless", Required = false,
     HelpText = "Run headdless.", Default = false)]
     public bool Headless { get; set; }
