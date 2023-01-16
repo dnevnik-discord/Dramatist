@@ -1,5 +1,3 @@
-document.body.style.border = "5px solid red";
-
 const uri = 'http://httpbin.org/ip';
 let users = [];
 
@@ -11,10 +9,29 @@ function getItems() {
 }
 
 function _displayItems(data) {
-    console.log(data)
+    console.log(data);
 }
 
-// Nope
-document.onload = () => console.log("BLAAAAAAAAAAHHHHHHHHHHH")
+//getItems();
 
-getItems()
+//////////////////////////////////
+
+
+let comments = document.getElementById('comments')
+    .getElementsByClassName('comment');
+
+for (const comment of comments) {
+    let commentId = comment.getAttribute('data-id');
+
+    let commentUserName = comment.getElementsByTagName('h6')
+        .item(0).innerText;
+
+    let div = document.createElement('div');
+    div.style.borderTop = "2px dotted black";
+    div.style.color = "#cccccc";
+    div.style.backgroundColor = "#777777";
+    let text = document.createTextNode('Id: ' + commentId + ' | '
+        + 'Name: ' + commentUserName + ' | ');
+    div.appendChild(text);
+    comment.prepend(div);
+}
