@@ -4,5 +4,4 @@
 zip -r -FS ../my-extension.zip * --exclude '*.git*'
 
 cd Playground/Dramatist.WebExtension/
-
 zip -r -FS ../Dramatist.WebExtension.zip * --exclude notes.md
