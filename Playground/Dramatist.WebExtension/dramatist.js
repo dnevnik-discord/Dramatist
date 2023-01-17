@@ -16,6 +16,8 @@ function _displayItems(data) {
 
 //////////////////////////////////
 
+document.querySelector("[title='Препоръчване']").click();
+
 
 let comments = document.getElementById('comments')
     .getElementsByClassName('comment');
@@ -28,8 +30,8 @@ for (const comment of comments) {
 
     let div = document.createElement('div');
     div.style.borderTop = "2px dotted black";
-    div.style.color = "#cccccc";
-    div.style.backgroundColor = "#777777";
+    div.style.color = "#dddddd";
+    div.style.backgroundColor = "#999999";
     let text = document.createTextNode('Id: ' + commentId + ' | '
         + 'Name: ' + commentUserName + ' | ');
     div.appendChild(text);
