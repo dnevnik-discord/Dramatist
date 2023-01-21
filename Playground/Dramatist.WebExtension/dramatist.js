@@ -12,11 +12,25 @@ function _displayItems(data) {
     console.log(data);
 }
 
-//getItems();
+getItems();
 
 //////////////////////////////////
 
-document.querySelector("[title='Препоръчване']").click();
+
+try {
+    document.querySelector("[title='Препоръчване']").click();
+}
+catch (err) {
+    console.log(err.message);
+}
+
+
+// var c = $("#comments"), u = ["/ajax/forum", c.data("forumtype"), c.data("itemid"), c.children("li").length, c.data("ordertype"), c.data("filtertype"), "all"].join("/");
+// $.get(u, {}, function (r) {
+//     if (!r.err_cnt && r.rows) {
+//         $("#comments").append(r.result);
+//     }
+// });
 
 
 let comments = document.getElementById('comments')
@@ -29,7 +43,10 @@ for (const comment of comments) {
         .item(0).innerText;
 
     let div = document.createElement('div');
+    div.style.marginTop = "2px";
     div.style.borderTop = "2px dotted black";
+    div.style.borderLeft = "2px dotted black";
+    div.style.paddingLeft = "2px";
     div.style.color = "#dddddd";
     div.style.backgroundColor = "#999999";
     let text = document.createTextNode('Id: ' + commentId + ' | '
@@ -37,3 +54,4 @@ for (const comment of comments) {
     div.appendChild(text);
     comment.prepend(div);
 }
+
