@@ -38,15 +38,34 @@
 
     <h3 id="counter"></h3>
 
-    <table>
+    <table id="myTable2">
         <tr>
-            <th>Id</th>
-            <th>Handle</th>
-            <th>Name</th>
-            <th>Democrat</th>
-            <th>Gerbage</th>
-            <th>Putaran</th>
-            <th>Notes</th>
+            <th onclick="sortTable(0)">Id</th>
+            <th onclick="sortTable(1)">Handle</th>
+            <th onclick="sortTable(2)">Name</th>
+            <th onclick="sortTable(3)">Democrat</th>
+            <th onclick="sortTable(4)">Gerbage</th>
+            <th onclick="sortTable(5)">Putaran</th>
+            <th onclick="sortTable(6)">Notes</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>
+                <input type="text" id="myIdInput" onkeyup="myFunction(this.id, 0)" placeholder="ids...">
+            </th>
+            <th>
+                <input type="text" id="myHandleInput" onkeyup="myFunction(this.id, 1)" placeholder="handles...">
+            </th>
+            <th>
+                <input type="text" id="myNameInput" onkeyup="myFunction(this.id, 2)" placeholder="names...">
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                <input type="text" id="myNoteInput" onkeyup="myFunction(this.id, 6)" placeholder="notes...">
+            </th>
             <th></th>
             <th></th>
         </tr>
@@ -60,3 +79,5 @@
 </body>
 
 </html>
+
+<!-- ToDo: https://github.com/vitmalina/w2ui -->
