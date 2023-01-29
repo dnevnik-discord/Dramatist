@@ -25,12 +25,20 @@ catch (err) {
 }
 
 
-// var c = $("#comments"), u = ["/ajax/forum", c.data("forumtype"), c.data("itemid"), c.children("li").length, c.data("ordertype"), c.data("filtertype"), "all"].join("/");
-// $.get(u, {}, function (r) {
-//     if (!r.err_cnt && r.rows) {
-//         $("#comments").append(r.result);
-//     }
-// });
+const c = document.querySelector("#comments");
+const u = `/ajax/forum/${c.dataset.forumtype}/${c.dataset.itemid}/${c.querySelectorAll("li.comment").length}/${c.dataset.ordertype}/${c.dataset.filtertype}/all`;
+
+await fetch(u, {
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+    }
+})
+    .then(response => response.json())
+    .then(data => {
+        if (!data.err_cnt && data.rows) {
+            document.querySelector("#comments").innerHTML += data.result;
+        }
+    });
 
 
 let comments = document.getElementById('comments')
