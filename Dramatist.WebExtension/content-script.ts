@@ -1,4 +1,3 @@
-"use strict";
 async function updateComments(): Promise<void> {
     const c = document.querySelector<HTMLElement>("#comments");
 
