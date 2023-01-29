@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+    "name": "Dramatist",
+    "version": "1.0",
+    "description": "Dramatist Web Extension",
+    "icons": {
+        "48": "icons/border-48.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://www.dnevnik.bg/*/comments"
+            ],
+            "js": [
+                "content-script.js"
+            ],
+            "css": [
+                "style.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "joshuatee@example.org",
+            "strict_min_version": "102.0"
+        }
+    },
+    "permissions": [
+        "activeTab",
+        "<all_urls>"
+    ]
+}
